@@ -9,6 +9,7 @@ https://getzephyr.docs.apiary.io/#reference/cycleresource/get-the-list-of-folder
 
 ## jira的REST api ：
 https://developer.atlassian.com/cloud/jira/platform/rest/v2/
-end
 
-## 
+
+## requests 模块 
+http://docs.python-requests.org/en/master/user/quickstart/
