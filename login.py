@@ -11,25 +11,33 @@ def login(username,password):
     s.auth = (username,password)
     return s
 ''' 请求url，返回文本,输入s指的是login()返回的s，params为字典类型,如{'key1':'value1','key2':'value2'} '''
-def getText(s,url,params):
+def getText(s,url,params=None):
     r =  s.get(url,params=params)
     return r.text
 ''' 和getText类似，只是返回的是json对象 '''
-def getJson(s,url,params):
+def getJson(s,url,params=None):
     r = s.get(url,params=params)
     return r.json()
 ''' post提交，data 是字典类型,如{'key1':'value1','key2':'value2'}'''
-def post(s,url,data):
+def post(s,url,data=None):
     r = s.post(url,data=data)
     return r.text
 '''
-TODO:这里将实现一个公用的按url下载文件的函数
+这里将实现一个公用的按url下载文件的函数
 url: 远程地址
-target: 本地保存路径
+target: 本地保存路径,注意包含文件名
 '''
 def downloadFile(s,url,target):
-    pass
+    r = s.get(url)
+    f = open(target,'wb')
+    for chunk in r.iter_content(100000):
+        f.write(chunk)
+
+    f.close()
+
+
 '''
+TODO:
 将文件上传到指定的服务地址
 url:文件上传服务地址
 source:本地源文件路径
