@@ -20,6 +20,8 @@ def getJson(s,url,params=None):
     return r.json()
 ''' post提交，data 是字典类型,如{'key1':'value1','key2':'value2'}'''
 def post(s,url,data=None):
+    headers={"Accept": "application/json","Content-Type": "application/json"}
+    s.headers.update(headers)
     r = s.post(url,data=data)
     return r.text
 '''
