@@ -12,4 +12,4 @@ https://developer.atlassian.com/cloud/jira/platform/rest/v2/
 
 
 ## requests 模块 
-http://docs.python-requests.org/en/master/user/quickstart/
+http://docs.python-requests.org/en/master
