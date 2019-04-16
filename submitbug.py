@@ -1,27 +1,24 @@
 ##!/usr/bin/python
-# -*- coding: utf-8 -*-
+# -*- coding: UTF-8 -*-
 
 from login import *
-# import requests
+import requests
 import json
 
 def submitbug(s,summary, description):
+
     url = "https://code.bonc.com.cn/jira/rest/api/2/issue"
 
-    headers = {"Accept": "application/json","Content-Type": "application/json"}
+    headers =({"Accept": "application/json","Content-Type": "application/json"})
 
-    # payload = json.dumps({'project': {'id': '12017'}, 'issuetype': {'id': '10103'}, 'components': {'name':u'99-其他'},'assignee': {'name': 'lixiaofan'}, 'summary': summary, 'description': description, 'priority': {'name': u'重要'}, 'customfield_11303': [{'name': "base_1.0"}]})
-    # payload = json.dumps({'project': {'id': '12017'}, 'issuetype': {'id': '10103'}, 'components': {'name': u'99-其他'},
-    #                       'assignee': {'name': 'lixiaofan'}, 'summary': summary, 'description': description,
-    #                       'priority': {'name': u'重要'}, 'customfield_11303': [{'name': "base_1.0"}]})
-    # payload = {'project': {'id': '12017'}, 'issuetype': {'id': '10103'}, 'components': {'name': u'99-其他'},
-    #                       'assignee': {'name': 'lixiaofan'}, 'summary': summary, 'description': description,
-    #                       'priority': {'name': u'重要'}, 'customfield_11303': [{'name': "base_1.0"}]}
-    payload = {'project': {'id': '12017'}, 'issuetype': {'id': '10103'}, 'components': {'name': u'99-其他'},'assignee': {'name': 'lixiaofan'}, 'summary': summary, 'description': description,'priority': {'name': u'重要'}, 'customfield_11303': [{'name': "base_1.0"}]}
+    payload=json.dumps({"fields": {"summary": summary,"issuetype": {"id": "1"},"components": [{"id": "11952"}],"project": {"id": "12017"},"description": description,"priority": {"id": "3"}}})
 
-    response = s.request("POST", url, data=payload, headers=headers)
+    response = requests.request("POST",url,data=payload,headers=headers)
 
     print(json.dumps(json.loads(response.text), sort_keys=True, indent=4, separators=(",", ": ")))
+    # r= post(s,url,data=payload)
+    #
+    # print(r)
 
 if __name__ == '__main__':
     s = login('lixiaofan', 'Lixiaofan123!')
