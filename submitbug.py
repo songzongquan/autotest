@@ -14,9 +14,11 @@ def submitbug(s,summary, description):
     # payload = json.dumps({'project': {'id': '12017'}, 'issuetype': {'id': '10103'}, 'components': {'name': u'99-其他'},
     #                       'assignee': {'name': 'lixiaofan'}, 'summary': summary, 'description': description,
     #                       'priority': {'name': u'重要'}, 'customfield_11303': [{'name': "base_1.0"}]})
-    payload = {'project': {'id': '12017'}, 'issuetype': {'id': '10103'}, 'components': {'name': u'99-其他'},
-                          'assignee': {'name': 'lixiaofan'}, 'summary': summary, 'description': description,
-                          'priority': {'name': u'重要'}, 'customfield_11303': [{'name': "base_1.0"}]}
+    # payload = {'project': {'id': '12017'}, 'issuetype': {'id': '10103'}, 'components': {'name': u'99-其他'},
+    #                       'assignee': {'name': 'lixiaofan'}, 'summary': summary, 'description': description,
+    #                       'priority': {'name': u'重要'}, 'customfield_11303': [{'name': "base_1.0"}]}
+    payload = {'project': {'id': '12017'}, 'issuetype': {'id': '10103'}, 'components': {'name': u'99-其他'},'assignee': {'name': 'lixiaofan'}, 'summary': summary, 'description': description,'priority': {'name': u'重要'}, 'customfield_11303': [{'name': "base_1.0"}]}
+
     response = s.request("POST", url, data=payload, headers=headers)
 
     print(json.dumps(json.loads(response.text), sort_keys=True, indent=4, separators=(",", ": ")))
