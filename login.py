@@ -26,7 +26,7 @@ def post(s,url,data=None):
     return r.text
 
 
-def put(s.url,data=None):
+def put(s,url,data=None):
 
     headers={"Accept": "application/json","Content-Type": "application/json"}
     s.headers.update(headers)
