@@ -39,13 +39,19 @@ def downloadFile(s,url,target):
 
 
 '''
-TODO:
 将文件上传到指定的服务地址
 url:文件上传服务地址
 source:本地源文件路径
 '''
 def uploadFile(s,url,source):
-    pass
+   # files = [('images',('foo.jpeg',open(source,'rb'),'image/jpeg')),('images',('bar.jpeg',open(source,'rb'),'image/jpeg'))]
+    headers ={"X-Atlassian-Token": "no-check"}
+
+    s.headers.update(headers)
+    files = {'file':open(source,'rb')}
+    r = s.post(url,files=files)
+    return r.text
+
 
 
 
