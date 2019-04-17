@@ -24,6 +24,17 @@ def post(s,url,data=None):
     s.headers.update(headers)
     r = s.post(url,data=data)
     return r.text
+
+
+def put(s.url,data=None):
+
+    headers={"Accept": "application/json","Content-Type": "application/json"}
+    s.headers.update(headers)
+    r = s.put(url,data=data)
+    return r.text
+
+
+
 '''
 这里将实现一个公用的按url下载文件的函数
 url: 远程地址
