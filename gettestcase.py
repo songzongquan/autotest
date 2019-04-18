@@ -2,6 +2,9 @@
 
 from login import *
 import requests
+'''
+根据测试循环id查询测试用例的附件，返回附件id与文件名
+'''
 def gettestcase(s,cycleId):
     url='https://code.bonc.com.cn/jira/rest/zapi/latest/execution'#接口
     url2='https://code.bonc.com.cn/jira/rest/api/2/issue'
