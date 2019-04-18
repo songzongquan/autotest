@@ -11,9 +11,13 @@ def screenshot(s,key,id):
     basedir=os.getcwd()
     source=os.path.join(basedir+'/screenshot/'+id+'.png')
     print(source)
-    r=uploadFile(s,url,source)
-    print(r)
+    if os.path.exists(source):
+        r=uploadFile(s,url,source)
+        print(r)
+    else:
+        print('不存在报错图片')
+
 
 if __name__ == '__main__':
     s = login('lixiaofan', 'Lixiaofan123!')
-    screenshot(s,'CLOUDIIP-680','680')
+    screenshot(s,'CLOUDIIP-680','CLOUDIIP-680')

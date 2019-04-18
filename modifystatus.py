@@ -42,14 +42,14 @@ def createxcute(s,cycleId,key,projectId):
 # 主函数，修改用例状态，excutionId为执行ID
 def modifystatus(s,cycleId,projectId):
 
-    data = ReadCSV() # 调用ReadCSV()函数
+    data = readCSV() # 调用ReadCSV()函数
     for d in data:
 
         key = d[0]    # CSV文件共三列，id(用例id),status(用例状态),descr(描述)
         status = d[1]
         descr = d[2]
 
-        excutionId=Createxcute(s,cycleId,key,projectId) # 获取用例的执行ID，通过Createxcute()函数获得
+        excutionId=createxcute(s,cycleId,key,projectId) # 获取用例的执行ID，通过Createxcute()函数获得
         url='https://code.bonc.com.cn/jira/rest/zapi/latest/execution/'+excutionId+'/execute'#
         t=status
         if status == 'pass' :
