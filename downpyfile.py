@@ -4,7 +4,7 @@ import os
 
 def downpyfile(s,id,filename):
     url = "https://code.bonc.com.cn/jira/rest/api/2/attachment/"+id  #接口
-    #print(url)
+    print(url)
     basedir = os.getcwd()  #获取当前路径
     path = basedir + '/testpy/'  #py文件存取的目录
     print(path)
