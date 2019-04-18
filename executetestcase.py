@@ -10,7 +10,7 @@ sys.setdefaultencoding("utf-8")
 #执行用例的名称命名格式为：auto_caseID_功能.py，如auto_0001_login.py
 #执行用例中判断结果，输出两种情况：if condition：result=“pass：执行通过”；else：result=“fail：fail的原因”
 
-def excutetestcase()
+def executetestcase():
     path = os.getcwd()
     script_path = path + r"\testpy"
     scripts= os.listdir(script_path)
