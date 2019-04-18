@@ -4,16 +4,18 @@
 from login import *
 from gettestcase import *
 from downpyfile import *
-
+from excutetestcase import *
 
 
 projectId = 12106
 
-cycleId = 14 #先指定一个测试循环id
+cycleId = -1  #先指定一个测试循环id
 
 s = login('songzongquan','000000') #先登录jira
 testcases = gettestcase(s,cycleId) #获取测试用例执行脚本
 downloadFiles(s,testcases) #下载所有用例文件
+excutetestcase()      #执行测试脚本
+
 
 
 
