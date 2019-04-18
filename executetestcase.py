@@ -12,11 +12,12 @@ import sys
 
 def executetestcase():
     path = os.getcwd()
-    script_path = path + r"/testpy/"
+    script_path = os.path.join(path+"/testpy/")
+    print(script_path)
     scripts= os.listdir(script_path)
     length = len(scripts)
     #cycle_name是返回的循环的名称,作为csv文件的名称，创建一个csv文件
-    csv_name = path+r"/zhixing.csv"  
+    csv_name = os.join(path+"/result/zhixing.csv")  
     if os.path.exists(csv_name):
         os.remove(csv_name)
     with open(csv_name, "w") as csvfile:
