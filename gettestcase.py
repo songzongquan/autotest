@@ -1,17 +1,19 @@
+
+
 from login import *
 import requests
 def gettestcase(s,cycleId):
-    url='https://code.bonc.com.cn/jira/rest/zapi/latest/execution'#½Ó¿Ú
+    url='https://code.bonc.com.cn/jira/rest/zapi/latest/execution'#æ¥å£
     url2='https://code.bonc.com.cn/jira/rest/api/2/issue'
     params = {'action':'expand','cycleId':cycleId}
-    r = getJson(s,url,params)               #Õâ¸ö½Ó¿ÚÏÂµÄËùÓĞ²âÊÔÓÃÀı×Öµä
+    r = getJson(s,url,params)               #è¿™ä¸ªæ¥å£ä¸‹çš„æ‰€æœ‰æµ‹è¯•ç”¨ä¾‹å­—å…¸
 
-    issues= r['executions'] #Õâ¸ö½Ó¿ÚÏÂµÄËùÓĞ²âÊÔÓÃÀı×ÖµäÏÂËùÓĞexecutions×Öµä
-    result = []     #·µ»Ø½á¹û£¬ÔªËØÊÇÒ»¸ö{id:filename}ĞÎÊ½µÄ×Öµä
-    for x in issues:                         #ÔÚexecutions×ÖµäÖĞÃ¿ÕÒµ½Ò»¸öissueId,¾ÍÆ´½Óurl
+    issues= r['executions'] #è¿™ä¸ªæ¥å£ä¸‹çš„æ‰€æœ‰æµ‹è¯•ç”¨ä¾‹å­—å…¸ä¸‹æ‰€æœ‰executionså­—å…¸
+    result = []     #è¿”å›ç»“æœï¼Œå…ƒç´ æ˜¯ä¸€ä¸ª{id:filename}å½¢å¼çš„å­—å…¸
+    for x in issues:                         #åœ¨executionså­—å…¸ä¸­æ¯æ‰¾åˆ°ä¸€ä¸ªissueId,å°±æ‹¼æ¥url
        issueId = x['issueId']
        issue = getJson(s, url2 + '/' + str(issueId), None)
-       attachments = issue['fields']['attachment']    #×Öµä
+       attachments = issue['fields']['attachment']    #å­—å…¸
        for attachment in attachments:                 #list
            id = attachment['id']
            filename = attachment['filename']
