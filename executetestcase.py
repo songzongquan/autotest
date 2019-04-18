@@ -23,12 +23,14 @@ def executetestcase():
         writer = csv.writer(csvfile)
         writer.writerow(["用例id", "用例执行状态", "描述"])  #填写表头
         for i in range(length):
-            id = scripts[i].split("_")[1]  #case的id
-            back_result = os.popen("python3 "+script_path+scripts[i])   #返回执行文件的输出内容，为file对象
-            print(back_result)
-            #back_read = back_result.read()
-            #status = back_read.split(":")[0]
-            #description = back_read.split(":")[1]
-            #writer.writerows([[id, status, description]])
+            filestr = scripts[i].split("_") 
+            if len(filestr) > 1:
+                id = filestr[1]  #case的id
+                back_result = os.popen("python3 "+script_path+scripts[i])   #返回执行文件的输出内容，为file对象
+                print(back_result)
+                back_read = back_result.read()
+                status = back_read.split(":")[0]
+                description = back_read.split(":")[1]
+                writer.writerows([[id, status, description]])
 
 

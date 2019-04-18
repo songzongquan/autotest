@@ -1,1 +1,9 @@
-{"self":"https://code.bonc.com.cn/jira/rest/api/2/attachment/25781","filename":"新建文本文档.py","author":{"self":"https://code.bonc.com.cn/jira/rest/api/2/user?username=0112223","key":"0112223","name":"0112223","avatarUrls":{"16x16":"https://secure.gravatar.com/avatar/91dfb4b22e3a118f74cbf473cad28b15?d=mm&s=16","24x24":"https://secure.gravatar.com/avatar/91dfb4b22e3a118f74cbf473cad28b15?d=mm&s=24","32x32":"https://secure.gravatar.com/avatar/91dfb4b22e3a118f74cbf473cad28b15?d=mm&s=32","48x48":"https://secure.gravatar.com/avatar/91dfb4b22e3a118f74cbf473cad28b15?d=mm&s=48"},"displayName":"shanghualan","active":true},"created":"2019-04-17T11:05:22.000+0800","size":313,"mimeType":"text/plain","properties":{},"content":"https://code.bonc.com.cn/jira/secure/attachment/25781/%E6%96%B0%E5%BB%BA%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3.py"}
+import requests
+
+
+'''登录，输入用户名和密码，返回session,此session具有request的所有的函数，
+如果下面包装的方法不够用，你可以直接用s来调用相关的函数;'''
+def login(username,password):
+    s = requests.Session()
+    s.auth = (username,password)
+    return s

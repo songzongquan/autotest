@@ -4,7 +4,7 @@ import os
 import shutil
 
 def downpyfile(s,id,filename):
-    url = "https://code.bonc.com.cn/jira/secure/attachment"+id  #接口
+    url = "https://code.bonc.com.cn/jira/secure/attachment/"+id+"/"+filename  #接口
     #print(url)
     basedir = os.getcwd()  #获取当前路径
     #print(basedir)
