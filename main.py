@@ -3,8 +3,10 @@
 
 from login import *
 
+cycleId = 14 #先指定一个测试循环id
 
-s = login('songzongquan','000000')
+s = login('songzongquan','000000') #先登录jira
+
 
 #r = getText(s,'https://code.bonc.com.cn/jira/rest/api/2/project')
 
