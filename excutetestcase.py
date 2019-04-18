@@ -9,10 +9,11 @@ sys.setdefaultencoding("utf-8")
 
 def excutetestcase()
     path = os.getcwd()
-    script_path = path + "\scripts"
+    script_path = path + "\testpy"
     scripts= os.listdir(script_path)
     length = len(scripts)
     #cycle_name是返回的循环的名称,作为csv文件的名称，创建一个csv文件
+    cycle_name = "基本功能测试"
     csv_name = path+cycle_name+".csv"  
     with open(csv_name, "w") as csvfile:
         writer = csv.writer(csvfile)
