@@ -17,7 +17,7 @@ def executetestcase():
     scripts= os.listdir(script_path)
     length = len(scripts)
     #cycle_name是返回的循环的名称,作为csv文件的名称，创建一个csv文件
-    csv_name = os.join(path+"/result/zhixing.csv")  
+    csv_name = os.path.join(path+"/result/zhixing.csv")  
     if os.path.exists(csv_name):
         os.remove(csv_name)
     with open(csv_name, "w") as csvfile:
@@ -30,8 +30,9 @@ def executetestcase():
                 back_result = os.popen("python3 "+script_path+scripts[i])   #返回执行文件的输出内容，为file对象
                 print(back_result)
                 back_read = back_result.read()
-                status = back_read.split(":")[0]
-                description = back_read.split(":")[1]
-                writer.writerows([[id, status, description]])
+                if len(back_read)>1:
+                    status = back_read.split(":")[0]
+                    description = back_read.split(":")[1]
+                    writer.writerows([[id, status, description]])
 
 
