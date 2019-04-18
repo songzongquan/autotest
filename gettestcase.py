@@ -1,5 +1,7 @@
-from login import *
 
+
+from login import *
+import requests
 '''
 根据测试循环id查询测试用例的附件，返回附件id与文件名
 '''
@@ -26,4 +28,10 @@ def gettestcase(s,cycleId):
 
     return result
 
+
+
+if __name__ == '__main__':
+    s = login('lixiaofan', 'Lixiaofan123!')
+    r = gettestcase(s,14)
+    print(r)
 
