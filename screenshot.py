@@ -3,11 +3,19 @@
 from login import *
 import os
 
+from config import *
+
+
 ''' 输入s指的是login()返回的s，key为要添加附件的bug的bug号，id为测试结果为失败的用例对应的用例key值，如CLOUDIIP-23，为了取到该用例执行是对应的图片'''
 def screenshot(s,key,id):
 
-    url = "https://code.bonc.com.cn/jira/rest/api/2/issue/"+key+"/attachments"
+    path = getjiraUrl()
+    # print(path)
+    url = path + 'rest/api/2/issue/'+key+"/attachments"
     print(url)
+
+    # url = "https://code.bonc.com.cn/jira/rest/api/2/issue/"+key+"/attachments"
+    # print(url)
     basedir=os.getcwd()
     source=os.path.join(basedir+'/screenshot/'+id+'.png')
     print(source)
@@ -20,4 +28,4 @@ def screenshot(s,key,id):
 
 if __name__ == '__main__':
     s = login('lixiaofan', 'Lixiaofan123!')
-    screenshot(s,'CLOUDIIP-680','CLOUDIIP-680')
+    screenshot(s,'CLOUDIIPZHYD-329','CLOUDIIPZHYD-329')
