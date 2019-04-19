@@ -19,11 +19,14 @@ def readCSV():
 
 def getIssueId(s,issuekey):
     url='https://code.bonc.com.cn/jira/rest/api/2/issue/'+issuekey
-    #print("getIssueId: url="+url)
+    print(url)
     r =getJson(s,url)
-    #print(r)
-    id = r["id"]
-    return id
+    issueid = r["id"]
+    versionid=r["fields"]["customfield_11303"][0]["id"]
+    projectid=r["fields"]["project"]["id"]
+    componentid=r["fields"]['components'][0]['id']
+    # print(issueid,versionid,projectid,componentid)
+    return (issueid,versionid,projectid,componentid)
 
 
 # 创建新执行，cycleId为测试循环ID,issueId为测试用例ID,projectId为项目ID
