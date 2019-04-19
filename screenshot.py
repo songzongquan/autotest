@@ -11,7 +11,7 @@ def screenshot(s,key,id):
 
     path = getjiraUrl()
     # print(path)
-    url = path + 'rest/api/2/issue/'+key+"/attachments"
+    url = path + "rest/api/2/issue/"+key+"/attachments"
     print(url)
 
     # url = "https://code.bonc.com.cn/jira/rest/api/2/issue/"+key+"/attachments"
