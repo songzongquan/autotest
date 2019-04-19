@@ -28,7 +28,7 @@ def executetestcase():
             if len(filestr) > 1:
                 id = filestr[1]  #case的id
                 back_result = os.popen("python3 "+script_path+scripts[i])   #返回执行文件的输出内容，为file对象
-                print(back_result)
+               # print(back_result)
                 back_read = back_result.read()
                 if len(back_read)>1:
                     status = back_read.split(":")[0]
