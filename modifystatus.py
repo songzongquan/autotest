@@ -10,17 +10,18 @@ import os
 # 读取聪聪的CSV文件
 def readCSV():
     basedir=os.getcwd()
-    p=os.path.join(basedir+'/result/') #文件路径
+    p=os.path.join(basedir+'/result/zhixing.csv') #文件路径
     d=csv.reader(open(p,'r')) # 打开CSV文件
     # for line in f: # 逐行读取文件
     #     d=line[:]
-    # print(d)
-    return d
+    l = list(d)    
+    return l[1:]
 
 def getIssueId(s,issuekey):
     url='https://code.bonc.com.cn/jira/rest/api/2/issue/'+issuekey
-    print(url)
+    #print("getIssueId: url="+url)
     r =getJson(s,url)
+    #print(r)
     id = r["id"]
     return id
 
@@ -51,17 +52,18 @@ def modifystatus(s,cycleId,projectId):
 
         excutionId=createxcute(s,cycleId,key,projectId) # 获取用例的执行ID，通过Createxcute()函数获得
         url='https://code.bonc.com.cn/jira/rest/zapi/latest/execution/'+excutionId+'/execute'#
-        t=status
-        if status == 'pass' :
+        print(status)
+        t=-1
+        if status == 'pass':
             t= 1
-        elif status=='fail' :
+        elif status =='fail':
             t= 2
             key=submitbug(s,descr,descr)
-            print(key)
             screenshot(s,key,key)
+        print(t)
         values = json.dumps({"status":t})
         p= put(s,url, data=values) # 修改用例状态方法用put
-        print(p)
+    #    print(p)
 
 
 if __name__ == '__main__':
