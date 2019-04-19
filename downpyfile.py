@@ -2,8 +2,14 @@
 from login import *
 import os
 import shutil
+from config import *
+
 def downpyfile(s,id,filename):
-    url = "https://code.bonc.com.cn/jira/secure/attachment/"+id+"/"+filename  #接口
+
+    jiraurl= getjiraUrl()
+    # 接口地址
+    url = jiraurl+"secure/attachment/" + id + "/" + filename
+    print(url)
     basedir = os.getcwd()  #获取当前路径
     path = os.path.join(basedir+'/testpy/') #py文件存取的目录
     target = path + filename  #py文件存取的最终显示路径
