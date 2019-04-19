@@ -57,8 +57,10 @@ source:本地源文件路径
 def uploadFile(s,url,source):
    # files = [('images',('foo.jpeg',open(source,'rb'),'image/jpeg')),('images',('bar.jpeg',open(source,'rb'),'image/jpeg'))]
     headers ={"X-Atlassian-Token": "no-check"}
-
+    
     s.headers.update(headers)
+    del s.headers['Content-Type']
+    print(s.headers)
     files = {'file':open(source,'rb')}
     r = s.post(url,files=files)
     return r.text

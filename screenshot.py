@@ -12,7 +12,7 @@ def screenshot(s,key,id):
     source=os.path.join(basedir+'/screenshot/'+id+'.png')
     print(source)
     if os.path.exists(source):
-        r=uploadFile(s,url,source)
+        r = uploadFile(s,url,source)
         print(r)
     else:
         print('不存在报错图片')

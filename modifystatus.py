@@ -5,7 +5,7 @@ import json
 import csv
 from submitbug import *
 from screenshot import *
-import os
+import os,time
 
 # 读取聪聪的CSV文件
 def readCSV():
@@ -17,7 +17,7 @@ def readCSV():
     l = list(d)    
     return l[1:]
 
-def getIssueId(s,issuekey):
+def getIssueInfo(s,issuekey):
     url='https://code.bonc.com.cn/jira/rest/api/2/issue/'+issuekey
     print(url)
     r =getJson(s,url)
@@ -29,10 +29,10 @@ def getIssueId(s,issuekey):
     return (issueid,versionid,projectid,componentid)
 
 
-# 创建新执行，cycleId为测试循环ID,issueId为测试用例ID,projectId为项目ID
-def createxcute(s,cycleId,key,projectId):
+# 创建新执行，cycleId为测试循环ID,issueKey为测试用例ID,projectId为项目ID
+def createxcute(s,cycleId,issueid,projectId):
     url='https://code.bonc.com.cn/jira/rest/zapi/latest/execution' #调“创建新执行”的接口
-    issueid = getIssueId(s,key)
+    
     values = json.dumps({"cycleId":cycleId,"issueId":issueid,"projectId":projectId})
     q= post(s,url, data=values)
     # print(q)
@@ -49,11 +49,12 @@ def modifystatus(s,cycleId,projectId):
     data = readCSV() # 调用ReadCSV()函数
     for d in data:
 
-        key = d[0]    # CSV文件共三列，id(用例id),status(用例状态),descr(描述)
+        tckey = d[0]    # CSV文件共三列，tckey(用例key),status(用例状态),descr(描述)
         status = d[1]
         descr = d[2]
 
-        excutionId=createxcute(s,cycleId,key,projectId) # 获取用例的执行ID，通过Createxcute()函数获得
+        issue = getIssueInfo(s,tckey)
+        excutionId=createxcute(s,cycleId,issue[0],projectId) # 获取用例的执行ID，通过Createxcute()函数获得
         url='https://code.bonc.com.cn/jira/rest/zapi/latest/execution/'+excutionId+'/execute'#
         #print(status)
         t=-1
@@ -61,8 +62,9 @@ def modifystatus(s,cycleId,projectId):
             t= 1
         elif status =='fail':
             t= 2
-            key=submitbug(s,descr,descr,componentid,projectid,versionid)
-            screenshot(s,key,key)
+            bugkey=submitbug(s,descr,descr,issue[3],projectId,issue[1])
+            time.sleep(5)
+            screenshot(s,bugkey,tckey)
         #print(t)
         values = json.dumps({"status":t})
         p= put(s,url, data=values) # 修改用例状态方法用put
