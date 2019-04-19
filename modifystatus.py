@@ -52,7 +52,7 @@ def modifystatus(s,cycleId,projectId):
 
         excutionId=createxcute(s,cycleId,key,projectId) # 获取用例的执行ID，通过Createxcute()函数获得
         url='https://code.bonc.com.cn/jira/rest/zapi/latest/execution/'+excutionId+'/execute'#
-        print(status)
+        #print(status)
         t=-1
         if status == 'pass':
             t= 1
@@ -60,7 +60,7 @@ def modifystatus(s,cycleId,projectId):
             t= 2
             key=submitbug(s,descr,descr)
             screenshot(s,key,key)
-        print(t)
+        #print(t)
         values = json.dumps({"status":t})
         p= put(s,url, data=values) # 修改用例状态方法用put
     #    print(p)
