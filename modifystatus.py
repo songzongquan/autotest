@@ -61,7 +61,7 @@ def modifystatus(s,cycleId,projectId):
             t= 1
         elif status =='fail':
             t= 2
-            key=submitbug(s,descr,descr)
+            key=submitbug(s,descr,descr,componentid,projectid,versionid)
             screenshot(s,key,key)
         #print(t)
         values = json.dumps({"status":t})
