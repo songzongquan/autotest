@@ -6,6 +6,7 @@ import csv
 from submitbug import *
 from screenshot import *
 import os,time
+from config import *
 
 '''读取执行后的CSV文件,CSV文件存储在当前文件夹中的result中,从第二行开始读取'''
 
@@ -20,7 +21,10 @@ def readCSV():
 projectId(项目ID),componentId(模块ID),主函数调用这些ID'''
 
 def getIssueInfo(s,issueKey):
-    url='https://code.bonc.com.cn/jira/rest/api/2/issue/'+issueKey
+
+	path=getjiraUrl()
+    # print(path)
+    url=path+'rest/api/2/issue/'+issueKey
     print(url)
     r =getJson(s,url)
     issueId = r["id"]
@@ -33,7 +37,10 @@ def getIssueInfo(s,issueKey):
 '''创建新执行，通过cycleId(测试循环ID),issueId(从F12中获得的用例ID),projectId(项目ID)来获取executionId(用例执行ID)'''
 
 def creatExcute(s,cycleId,issueId,projectId):
-    url='https://code.bonc.com.cn/jira/rest/zapi/latest/execution' #调“创建新执行”的接口
+
+    path=getjiraUrl()
+    # print(path)
+    url=path+'rest/zapi/latest/execution' #调“创建新执行”的接口
     values = json.dumps({"cycleId":cycleId,"issueId":issueId,"projectId":projectId})
     q= post(s,url, data=values)
     q1 = json.loads(q)
@@ -51,12 +58,16 @@ def modifyStatus(s,cycleId,projectId):
     for d in data:
         issueKey = d[0]    # CSV文件目前只有三列，issueKey(用例key),status(用例状态),descr(描述)
         status = d[1]
-        descr = d[2]
+        summary = d[2]
+		descr=d[3]
+		
 
         issue = getIssueInfo(s,issueKey) #调用getIssueInfo()函数,获取各种id
         issueId=issue[0]
         excutionId=createxcute(s,cycleId,issueId,projectId) # 获取用例的执行ID，通过Createxcute()函数获得
-        url='https://code.bonc.com.cn/jira/rest/zapi/latest/execution/'+excutionId+'/execute'
+		path=getjiraUrl()
+		# print(path)
+		url=path+'rest/zapi/latest/execution/'+excutionId+'/execute'
 
         t=-1
         if status == 'pass':
@@ -64,7 +75,7 @@ def modifyStatus(s,cycleId,projectId):
         elif status =='fail':
             t= 2
             versionId,componentId=issue[3],issue[1]
-            bugkey=submitbug(s,descr,descr,versionId,projectId,componentId)
+            bugkey=submitbug(s,summary,descr,versionId,projectId,componentId)
             time.sleep(5)
             screenshot(s,bugkey,issueKey)
 
