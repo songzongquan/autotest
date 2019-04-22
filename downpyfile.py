@@ -5,10 +5,8 @@ import shutil
 from config import *
 
 def downpyfile(s,id,filename):
-
     jiraurl= getjiraUrl()
-    # 接口地址
-    url = jiraurl+"secure/attachment/" + id + "/" + filename
+    url = jiraurl+"secure/attachment/" + id + "/" + filename  # 接口地址
     print(url)
     basedir = os.getcwd()  #获取当前路径
     path = os.path.join(basedir+'/testpy/') #py文件存取的目录
@@ -24,8 +22,12 @@ def downloadFiles(s,testcases):
         fid = testcase['id']
         fname = testcase['filename']
         downpyfile(s,fid,fname)
+
+
 if __name__ == '__main__':
     s = login('0111831', '1314wy8023jc.')
-    result = [{'id':'25833','filename':'auto_0001_baidu.py'},{'id': '25781', 'filename': '新建文本文档.py'}]  #返回的附件列表
+    result = [{'id':'25850','filename':'auto_CLOUDIIPZHYD-325_baidu.py'},{'id': '25856', 'filename': 'auto_CLOUDIIPZHYD-329_baidu.py'}]  #返回的附件列表
     for i in result:
-        downpyfile(s,i['id'],i['filename'])
+        id = i['id']
+        filename = i['filename']
+        downpyfile(s,i['id'],filename)
