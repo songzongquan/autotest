@@ -22,7 +22,7 @@ projectId(项目ID),componentId(模块ID),主函数调用这些ID'''
 
 def getIssueInfo(s,issueKey):
 
-	path=getjiraUrl()
+    path=getjiraUrl()
     # print(path)
     url=path+'rest/api/2/issue/'+issueKey
     print(url)
@@ -59,15 +59,15 @@ def modifyStatus(s,cycleId,projectId):
         issueKey = d[0]    # CSV文件目前只有三列，issueKey(用例key),status(用例状态),descr(描述)
         status = d[1]
         summary = d[2]
-		descr=d[3]
+        descr=d[3]
 		
 
         issue = getIssueInfo(s,issueKey) #调用getIssueInfo()函数,获取各种id
         issueId=issue[0]
         excutionId=createxcute(s,cycleId,issueId,projectId) # 获取用例的执行ID，通过Createxcute()函数获得
-		path=getjiraUrl()
-		# print(path)
-		url=path+'rest/zapi/latest/execution/'+excutionId+'/execute'
+        path=getjiraUrl()
+        # print(path)
+        url=path+'rest/zapi/latest/execution/'+excutionId+'/execute'
 
         t=-1
         if status == 'pass':
