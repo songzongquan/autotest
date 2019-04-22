@@ -56,24 +56,27 @@ def modifyStatus(s,cycleId,projectId):
 
     data = readCSV() # 调用ReadCSV()函数
     for d in data:
-        issueKey = d[0]    # CSV文件目前只有三列，issueKey(用例key),status(用例状态),descr(描述)
-        status = d[1]
-        summary = d[2]
-        descr=d[3]
-		
+        issueKey = d[0]    # CSV文件目前有四列，issueKey(用例key),status(用例状态),summary(标题),descr(描述
 
         issue = getIssueInfo(s,issueKey) #调用getIssueInfo()函数,获取各种id
         issueId=issue[0]
-        excutionId=creatExcute(s,cycleId,issueId,projectId) # 获取用例的执行ID，通过Createxcute()函数获得
+        excutionId=creatExcute(s,cycleId,issueId,projectId) # 获取用例的执行ID，通过CreatExcute()函数获得
         path=getjiraUrl()
         # print(path)
         url=path+'rest/zapi/latest/execution/'+excutionId+'/execute'
 
+        status = d[1]
         t=-1
-        if status == 'pass':
+        if status == '通过':
             t= 1
-        elif status =='fail':
+        elif status == 'WIP':
+            t= 3
+        elif status == '阻止':
+            t= 4
+        elif status == '失败':
             t= 2
+            summary = d[2]
+            descr = d[3]
             versionId,componentId=issue[3],issue[1]
             bugkey=submitbug(s,summary,descr,versionId,projectId,componentId)
             time.sleep(5)
