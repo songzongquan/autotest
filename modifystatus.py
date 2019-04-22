@@ -47,7 +47,7 @@ def creatExcute(s,cycleId,issueId,projectId):
     for k,v in q1.items(): #读取字典的key值
         excutionId=k
 
-    return excutionId
+        return excutionId
 
 '''主函数(修改用例状态):先读取执行文件,然后getIssueInfo函数调用执行文件中的issueKey来获取issueId,creatExcute函数调用getIssueInfo
 中的issueId来获取executionId,最后主函数利用executionId来修改状态，用例状态为失败时调用submitbug函数提交bug，再调用screenshot函数来上传附件,'''
@@ -64,7 +64,7 @@ def modifyStatus(s,cycleId,projectId):
 
         issue = getIssueInfo(s,issueKey) #调用getIssueInfo()函数,获取各种id
         issueId=issue[0]
-        excutionId=createxcute(s,cycleId,issueId,projectId) # 获取用例的执行ID，通过Createxcute()函数获得
+        excutionId=creatExcute(s,cycleId,issueId,projectId) # 获取用例的执行ID，通过Createxcute()函数获得
         path=getjiraUrl()
         # print(path)
         url=path+'rest/zapi/latest/execution/'+excutionId+'/execute'
