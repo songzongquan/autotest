@@ -3,36 +3,44 @@
 
 import os
 import csv
-import sys
-#reload(sys)
-#sys.setdefaultencoding("utf-8")
 
-#执行用例的名称命名格式为：auto_caseID_功能.py，如auto_0001_login.py
-#执行用例中判断结果，输出两种情况：if condition：result=“pass：执行通过”；else：result=“fail：fail的原因”
+#执行用例的名称命名和jira中对应用例保持一致
+#执行用例中判断结果,输出为:if condition:result="通过”；else:result="失败:标题:详细描述”
 
 def executetestcase():
-    path = os.getcwd()
-    script_path = os.path.join(path+"/testpy/")
+    path = os.getcwd()  #获取当前路径
+    script_path = os.path.join(path+"/testpy/")  
     print(script_path)
-    scripts= os.listdir(script_path)
-    length = len(scripts)
-    #cycle_name是返回的循环的名称,作为csv文件的名称，创建一个csv文件
-    csv_name = os.path.join(path+"/result/zhixing.csv")  
+    scripts= os.listdir(script_path) #获取所有执行脚本
+    length = len(scripts)  #执行脚本的个数
+    result_path = os.path.join(path+"/result/")  #存放结果的路径
+    screenshot_path = os.path.join(path+"/screenshot/") #截图存放路径
+    #结果路径若不存在，新建此路径
+    if os.path.exists(result_path):
+        pass
+    else:
+        os.makedirs(result_path)
+    #截图路径若存在，删除后新建，若不存在，直接新建
+    if os.path.exists(screenshot_path):
+        os.rmdir(screenshot_path)
+        os.makedirs(screenshot_path)
+    else:
+        os.makedirs(screenshot_path)
+    #执行结果写入csv文件
+    csv_name = os.path.join(path+"/result/zhixing.csv")
+    #如果文件存在，删除
     if os.path.exists(csv_name):
         os.remove(csv_name)
     with open(csv_name, "w") as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(["用例id", "用例执行状态", "描述"])  #填写表头
+        writer.writerow(["用例id", "用例执行状态", "标题","详细描述"])  #填写表头
         for i in range(length):
-            filestr = scripts[i].split("_") 
-            if len(filestr) > 1:
-                id = filestr[1]  #case的id
-                back_result = os.popen("python3 "+script_path+scripts[i])   #返回执行文件的输出内容，为file对象
-               # print(back_result)
-                back_read = back_result.read()
-                if len(back_read)>1:
-                    status = back_read.split(":")[0]
-                    description = back_read.split(":")[1]
-                    writer.writerows([[id, status, description]])
-
-
+            filestr = scripts[i].split(".") 
+            id = filestr[0]  #case的id
+            back_result = os.popen("python3 "+script_path+scripts[i])   #返回执行文件的输出内容,为file对象
+            back_read = back_result.read()
+            csv_write = back_read.split(":")
+            write_list = [id]
+            write_list.extend(csv_write)
+            print(write_list)
+            writer.writerows([write_list])
