@@ -10,9 +10,9 @@ import logging
 def executetestcase():
     path = os.getcwd()  #获取当前路径
     script_path = os.path.join(path+"/testpy/")  
-    print(script_path)
     scripts= os.listdir(script_path) #获取所有执行脚本
     length = len(scripts)  #执行脚本的个数
+    #print("此次循环要执行的用力个数为：",length)
     result_path = os.path.join(path+"/result/")  #存放结果的路径
     screenshot_path = os.path.join(path+"/testpy/screenshot/") #截图存放路径
     #截图路径若存在,删除后新建,若不存在,直接新建
@@ -42,5 +42,5 @@ def executetestcase():
             csv_write = back_read.split(":")
             write_list = [id]
             write_list.extend(csv_write)
-            print(write_list)
+            #print("用例执行结果：",write_list)
             writer.writerows([write_list])
