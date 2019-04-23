@@ -1,5 +1,5 @@
-用例id,用例执行状态,描述
-CLOUDIIPZHYD-325,pass,"验证成功
+用例id,用例执行状态,标题,详细描述
+CLOUDIIPZHYD-329,失败,元素不存在,"通过id查找元素,未找到
 "
-CLOUDIIPZHYD-329,fail,"元素不存在
+CLOUDIIPZHYD-325,通过,"验证成功
 "
