@@ -12,16 +12,16 @@ def screenshot(s,key,id):
     path = getjiraUrl()
     # print(path)
     url = path + "rest/api/2/issue/"+key+"/attachments"
-    print(url)
+    # print(url)
 
     # url = "https://code.bonc.com.cn/jira/rest/api/2/issue/"+key+"/attachments"
     # print(url)
     basedir=os.getcwd()
     source=os.path.join(basedir+'/screenshot/'+id+'.png')
-    print(source)
+    # print(source)
     if os.path.exists(source):
         r = uploadFile(s,url,source)
-        print(r)
+        # print(r)
     else:
         print('不存在报错图片')
 

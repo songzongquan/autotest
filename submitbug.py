@@ -11,17 +11,17 @@ def submitbug(s,summary, description,componentid,projectid,versionid):
     path=getjiraUrl()
     # print(path)
     url = path+ 'rest/api/2/issue'
-    print(url)
+    # print(url)
 
     payload=json.dumps({"fields": {"summary": summary,"issuetype": {"id": "1"},"components": [{"id": componentid}],"project": {"id": projectid},"description": description,"customfield_11303":[{"id":versionid}]}})
 
     r= post(s,url,data=payload)
-    print(r)
+    # print(r)
     ''' 返回提交的bug对应的key值'''
     dict=json.loads(r)
-    print(dict)
+    # print(dict)
     key=dict.get("key")
-    print(key)
+    # print(key)
     return(key)
 
 if __name__ == '__main__':
