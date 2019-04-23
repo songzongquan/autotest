@@ -60,7 +60,7 @@ def uploadFile(s,url,source):
     
     s.headers.update(headers)
     del s.headers['Content-Type']
-    print(s.headers)
+    #print(s.headers)
     files = {'file':open(source,'rb')}
     r = s.post(url,files=files)
     return r.text
