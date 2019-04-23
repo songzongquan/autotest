@@ -25,7 +25,7 @@ def getIssueInfo(s,issueKey):
     path=getjiraUrl()
     # print(path)
     url=path+'rest/api/2/issue/'+issueKey
-    print(url)
+    #print(url)
     r =getJson(s,url)
     issueId = r["id"]
     versionId=r["fields"]["customfield_11303"][0]["id"]
@@ -84,7 +84,7 @@ def modifyStatus(s,cycleId,projectId):
 
         values = json.dumps({"status":t})
         p= put(s,url, data=values) # 修改用例状态方法用put
-        print(p)
+        #print(p)
 
 
 if __name__ == '__main__':

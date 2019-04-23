@@ -3,14 +3,22 @@ from login import *
 import os
 import shutil
 from config import *
-
+# import logging
+# from logging.handlers import RotatingFileHandler
+# logging.basicConfig(filename='downpyfile.log',level=logging.DEBUG,format='%(asctime)s %(filename)s[line:%(lineno)d] %(message)s')
+# RotatingFileHandler(filename='downpyfile.log', maxBytes=1024, backupCount=5)
 def downpyfile(s,id,filename):
     jiraurl= getjiraUrl()
     url = jiraurl+"secure/attachment/" + id + "/" + filename  # 接口地址
-    print(url)
+    # print(url)
+    # logging.debug(url)
     basedir = os.getcwd()  #获取当前路径
     path = os.path.join(basedir+'/testpy/') #py文件存取的目录
+    # print(path)
+    # logging.debug(path)
     target = path + filename  #py文件存取的最终显示路径
+    # print(target)
+    # logging.debug(target)
     d = downloadFile(s, url, target)  #调用login中的下载附件的函数
 if not os.path.exists(os.path.join(os.getcwd()+'/testpy')):
     os.makedirs(os.path.join(os.getcwd() + '/testpy/'))
@@ -30,4 +38,4 @@ if __name__ == '__main__':
     for i in result:
         id = i['id']
         filename = i['filename']
-        downpyfile(s,i['id'],filename)
+        downpyfile(s,id,filename)
