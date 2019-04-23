@@ -20,7 +20,7 @@ s=login(username,password)
 # s = login('songzongquan','000000') #先登录jira
 
 ''' 输入项目的key值，返回项目的id：projectId'''
-projectname = str(input("请输入项目key值："))
+projectname = str(input("您好！您的自动化测试之旅马上开始，敬请期待！\n请输入项目key值："))
 projectId= getproject(s,projectname)
 
 ''' 选择对应的版本序号，返回版本的id：versionId'''

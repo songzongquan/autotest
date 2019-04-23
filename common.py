@@ -26,13 +26,14 @@ def getversions(s,projectId):
     # print(path)
     url = path + "rest/api/2/project/"+projectId+"/versions"
     # print(url)
-
+    print("如下是该项目下的版本信息：")
     r = getJson(s, url, params=None)
     # print(r)
     list_len=len(r)
     for i in range(list_len):
-        print(i+1,'.',"versionid:",r[i]["id"],"versionname:",r[i]["name"])
-    number=int(input("请输入对应的版本的序号："))
+        # print(i+1,'.',"versionid:",r[i]["id"],"versionname:",r[i]["name"])
+        print(i + 1, '.', r[i]["name"])
+    number=int(input("请输入需要的版本的序号："))
     # print("版本的id：",r[number-1]["id"])
     return(r[number-1]["id"])
 
@@ -45,7 +46,7 @@ def getcycleId (s, projectId, versionId):
     # print(url)
     dict = getJson(s, url, params=None)
     # print(dict)
-
+    print("如下是该项目对应的测试循环信息：")
     # 已读取为dict
     key_list = list(dict.keys())
     key_list.pop() #因为列表的最后一行是统计数据，故去掉最后一行
@@ -58,10 +59,11 @@ def getcycleId (s, projectId, versionId):
     # print(aa)
     length = len(key_list)
     for j in range(length):
-        print(j + 1, ". ", " id:", key_list[j], "name:", aa[j])
+        # print(j + 1, ". ", " id:", key_list[j], "name:", aa[j])
+        print(j + 1, ". ", aa[j])
     project = int(input("请输入对应的循环的序号："))
     # print(aa[project-1])
-    print("循环的id:",key_list[project-1])
+    # print("循环的id:",key_list[project-1])
     return(key_list[project-1])
 
 if __name__ == '__main__':
