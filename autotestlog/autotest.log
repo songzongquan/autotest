@@ -1,5 +1,0 @@
-2019-04-22 19:14:22,841 - E:/PyCharmProject/gettestcase.py[line:60] - DEBUG: This is debug message
-2019-04-22 19:16:13,624 - E:/PyCharmProject/gettestcase.py[line:60] - DEBUG: [{'id': '25856', 'filename': 'auto_CLOUDIIPZHYD-329_baidu.py'}, {'id': '25850', 'filename': 'auto_CLOUDIIPZHYD-325_baidu.py'}, {'id': '25781', 'filename': '新建文本文档.py'}, {'id': '25828', 'filename': 'auto_0001_baidu.py'}]
-2019-04-22 19:20:19,144 - E:/PyCharmProject/gettestcase.py[line:60] - WARNING: [{'id': '25856', 'filename': 'auto_CLOUDIIPZHYD-329_baidu.py'}, {'id': '25850', 'filename': 'auto_CLOUDIIPZHYD-325_baidu.py'}, {'id': '25781', 'filename': '新建文本文档.py'}, {'id': '25828', 'filename': 'auto_0001_baidu.py'}]
-2019-04-22 19:25:07,375 - E:/PyCharmProject/gettestcase.py[line:60] - INFO: [{'id': '25856', 'filename': 'auto_CLOUDIIPZHYD-329_baidu.py'}, {'id': '25850', 'filename': 'auto_CLOUDIIPZHYD-325_baidu.py'}, {'id': '25781', 'filename': '新建文本文档.py'}, {'id': '25828', 'filename': 'auto_0001_baidu.py'}]
-2019-04-22 19:31:59,332 - E:/PyCharmProject/config.py[line:37] - INFO: https://code.bonc.com.cn/jira/
