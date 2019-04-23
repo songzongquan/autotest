@@ -13,8 +13,8 @@ projectId = 12106
 
 cycleId = 33  #先指定一个测试循环id
 
-u = getUsername()
-p = getPassword()
+u = getUsername()     # 从配置文件中获取jira账号名
+p = getPassword()     # 从配置文件中获取jira密码
 
 s = login(u,p) #先登录jira
 testcases = gettestcase(s,cycleId) #获取测试用例执行脚本
