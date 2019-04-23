@@ -15,7 +15,7 @@ def getConfig():
 
 def getjiraUrl():
     properties = getConfig()
-    print(properties)
+    #print(properties)
     jiraurl = properties["url"]
     return jiraurl
 
