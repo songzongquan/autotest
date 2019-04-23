@@ -4,19 +4,35 @@ import os
 from Util import Properties
 import logging
 
-def getjiraUrl():
+def getConfig():
     basedir = os.getcwd()   # 获取当前文件所在目录
     #print(basedir)
     configpath = os.path.join(basedir + '/config/config.properties')    # 获取config.properties文件所在目录
     #print(configpath)
     dictProperties = Properties(configpath).getProperties()     # 读取配置文件,字典形式返回文件内容
     #print(dictProperties)
-    configurl = list(dictProperties.values())[0]        # 将字典形式的值转化为列表形式，返回列表的第一个元素
-    #print(configurl)
-    return configurl
+    return dictProperties
+
+def getjiraUrl():
+    properties = getConfig()
+    print(properties)
+    jiraurl = properties["url"]
+    return jiraurl
+
+def getUsername():
+    properties = getConfig()
+    username = properties["username"]
+    return username
+
+def getPassword():
+    properties = getConfig()
+    password = properties["password"]
+    return password
 
 if __name__ == '__main__':
     r = getjiraUrl()
+    x = getUsername()
+    y = getPassword()
     current_path = os.getcwd()
     log_file = os.path.join(current_path + "/log/autotest.log")
     logging.basicConfig(level=logging.DEBUG,  # 控制台打印的日志级别
@@ -29,5 +45,6 @@ if __name__ == '__main__':
                         )
 
     logging.info(r)
-
+    logging.info(x)
+    logging.info(y)
 
