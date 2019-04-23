@@ -6,17 +6,29 @@ from gettestcase import *
 from downpyfile import *
 from executetestcase import *
 from modifystatus import *
+from common import *
 from config import *
 
 
-projectId = 12106
 
-cycleId = 33  #先指定一个测试循环id
+# username = str(input("请输入账户名："))
+# password = str(input("请输入密码："))
 
-u = getUsername()     # 从配置文件中获取jira账号名
-p = getPassword()     # 从配置文件中获取jira密码
+username=getUsername()
+password=getPassword()
+s=login(username,password)
+# s = login('songzongquan','000000') #先登录jira
 
-s = login(u,p) #先登录jira
+''' 输入项目的key值，返回项目的id：projectId'''
+projectname = str(input("请输入项目key值："))
+projectId= getproject(s,projectname)
+
+''' 选择对应的版本序号，返回版本的id：versionId'''
+versionId=getversions(s,projectId)
+
+''' 选择对应的循环序号，返回循环的id：cycleId'''
+cycleId=getcycleId(s,projectId,versionId)
+
 testcases = gettestcase(s,cycleId) #获取测试用例执行脚本
 downloadFiles(s,testcases) #下载所有用例文件
 executetestcase()      #执行测试脚本
