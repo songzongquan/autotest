@@ -18,7 +18,7 @@ def getjiraUrl():
 if __name__ == '__main__':
     r = getjiraUrl()
     current_path = os.getcwd()
-    log_file = os.path.join(current_path + "/autotestlog/autotest2.log")
+    log_file = os.path.join(current_path + "/log/autotest.log")
     logging.basicConfig(level=logging.DEBUG,  # 控制台打印的日志级别
                         filename=log_file,
                         filemode='a',  ##模式，有w和a，w就是写模式，每次都会重新写日志，覆盖之前的日志
