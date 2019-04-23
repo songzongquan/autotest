@@ -4,10 +4,11 @@
 
 - python3.x
 - jira
-- Zephyr
-- zapi
-- selenium  
-- firfox or chrome 以及其driver程序  
+- Zephyr - jira的测试管理插件 https://zephyrdocs.atlassian.net/
+- zapi   - zephyr api https://zephyrdocs.atlassian.net/wiki/spaces/DEVELOPER/pages/33095703/ZAPI+Server
+- selenium WebDriver - https://www.seleniumhq.org/projects/webdriver/
+- selenium with python  - https://selenium-python.readthedocs.io
+- Firfox/Chrome/Edge/safari   
 
 ## 安装步骤
 
