@@ -7,6 +7,9 @@ from submitbug import *
 from screenshot import *
 import os,time
 from config import *
+from log import *
+
+logger = logging.getLogger("main.modifyStatus")
 
 '''读取执行后的CSV文件,CSV文件存储在当前文件夹中的result中,从第二行开始读取'''
 
@@ -26,12 +29,13 @@ def getIssueInfo(s,issueKey):
     # print(path)
     url=path+'rest/api/2/issue/'+issueKey
     #print(url)
+    logger.debug('输出获取用例ID,版本ID,项目ID,组件ID的接口地址：',url)
     r =getJson(s,url)
     issueId = r["id"]
     versionId=r["fields"]["customfield_11303"][0]["id"]
     projectId=r["fields"]["project"]["id"]
     componentId=r["fields"]['components'][0]['id']
-
+    
     return (issueId,versionId,projectId,componentId)
 
 '''创建新执行，通过cycleId(测试循环ID),issueId(从F12中获得的用例ID),projectId(项目ID)来获取executionId(用例执行ID)'''
@@ -85,7 +89,7 @@ def modifyStatus(s,cycleId,projectId):
         values = json.dumps({"status":t})
         p= put(s,url, data=values) # 修改用例状态方法用put
         #print(p)
-
+        logger.debug('输出修改用例后的信息：',p)
 
 if __name__ == '__main__':
     s = login('wangyujia', 'wyj211421.')

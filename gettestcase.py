@@ -10,6 +10,8 @@ import logging
 '''
 def gettestcase(s,cycleId):
 
+	logger = logging.getLogger("main.gettestcase")
+
     r = getjiraUrl()
     url=os.path.join(r+'rest/zapi/latest/execution')#接口
     url2=os.path.join(r+'rest/api/2/issue')
@@ -25,19 +27,20 @@ def gettestcase(s,cycleId):
        for attachment in attachments:                 #list
            id = attachment['id']
            filename = attachment['filename']
-           #print(id)
-           #print(filename)
+           logger.debug("这是附件的id：",id)
+           logger.debug("这是附件的filename：",filename)
            if ".py" in filename:
                e ={"id":id,"filename":filename}
                result.append(e)
-
+	
+	logger.debug("这是附件的字典信息",result)
     return result
 
 
 
 if __name__ == '__main__':
     s = login('lixiaofan', 'Lixiaofan123!')
-    r = gettestcase(s,14)
+    r = gettestcase(s,33)
     print(r)
 
     current_path = os.getcwd()
