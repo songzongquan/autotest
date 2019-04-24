@@ -8,15 +8,17 @@ from executetestcase import *
 from modifystatus import *
 from common import *
 from config import *
+from log import *
 
 
-
-# username = str(input("请输入账户名："))
-# password = str(input("请输入密码："))
+logInit()
+logger = logging.getLogger("main")
 
 username=getUsername()
 password=getPassword()
 s=login(username,password)
+logger.info("登录jira成功!")
+
 # s = login('songzongquan','000000') #先登录jira
 
 ''' 输入项目的key值，返回项目的id：projectId'''
