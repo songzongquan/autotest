@@ -10,7 +10,7 @@ import logging
 '''
 def gettestcase(s,cycleId):
 
-	logger = logging.getLogger("main.gettestcase")
+    logger = logging.getLogger("main.gettestcase")
 
     r = getjiraUrl()
     url=os.path.join(r+'rest/zapi/latest/execution')#接口
@@ -32,8 +32,8 @@ def gettestcase(s,cycleId):
            if ".py" in filename:
                e ={"id":id,"filename":filename}
                result.append(e)
-	
-	logger.debug("这是附件的字典信息",result)
+    logger.debug("这是附件的字典信息",result)
+    
     return result
 
 
