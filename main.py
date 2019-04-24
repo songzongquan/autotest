@@ -21,14 +21,14 @@ logger.info("登录jira成功!")
 
 # s = login('songzongquan','000000') #先登录jira
 
-''' 输入项目的key值，返回项目的id：projectId'''
+# 输入项目的key值，返回项目的id：projectId
 projectname = str(input("您好！您的自动化测试之旅马上开始，敬请期待！\n请输入项目key值："))
 projectId= getproject(s,projectname)
 
-''' 选择对应的版本序号，返回版本的id：versionId'''
+# 选择对应的版本序号，返回版本的id：versionId
 versionId=getversions(s,projectId)
 
-''' 选择对应的循环序号，返回循环的id：cycleId'''
+# 选择对应的循环序号，返回循环的id：cycleId
 cycleId=getcycleId(s,projectId,versionId)
 
 testcases = gettestcase(s,cycleId) #获取测试用例执行脚本
