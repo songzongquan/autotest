@@ -6,3 +6,92 @@
 2019-04-23 19:18:22,730 - main - INFO - 登录jira成功!
 2019-04-23 19:23:40,604 - main - INFO - 登录jira成功!
 2019-04-24 14:26:38,897 - main - INFO - 登录jira成功!
+2019-04-24 17:43:31,992 - main - INFO - 登录jira成功!
+2019-04-24 17:45:02,972 - main - INFO - 登录jira成功!
+2019-04-25 17:34:23,549 - main - INFO - 登录jira成功!
+2019-04-25 17:36:15,477 - main - INFO - 登录jira成功!
+2019-04-25 17:37:16,630 - main - INFO - 登录jira成功!
+2019-04-25 17:40:22,162 - main - INFO - 登录jira成功!
+2019-04-25 17:41:36,201 - main - INFO - 登录jira成功!
+2019-04-25 17:45:58,592 - main - INFO - 登录jira成功!
+2019-04-25 17:50:14,043 - main - INFO - 登录jira成功!
+2019-04-25 17:55:02,135 - main - INFO - 登录jira成功!
+2019-04-25 18:01:21,175 - main - INFO - 登录jira成功!
+2019-04-25 18:07:15,530 - main - INFO - 登录jira成功!
+2019-04-25 18:07:34,892 - main.executetestcase - INFO - 用例执行完成
+2019-04-25 18:09:45,983 - main - INFO - 登录jira成功!
+2019-04-25 18:10:07,166 - main.executetestcase - INFO - 用例执行完成
+2019-04-25 18:12:18,660 - main - INFO - 登录jira成功!
+2019-04-25 18:12:35,851 - main.executetestcase - INFO - 执行完成:0/2
+2019-04-25 18:12:38,197 - main.executetestcase - INFO - 执行完成:1/2
+2019-04-25 18:12:38,197 - main.executetestcase - INFO - 用例执行完成
+2019-04-25 18:17:34,799 - main - INFO - 登录jira成功!
+2019-04-25 18:17:43,807 - main.executetestcase - INFO - 用例执行完成
+2019-04-25 18:21:49,693 - main - INFO - 登录jira成功!
+2019-04-25 18:26:03,722 - main - INFO - 登录jira成功!
+2019-04-25 18:28:11,768 - main - INFO - 登录jira成功!
+2019-04-25 18:33:06,260 - main - INFO - 登录jira成功!
+2019-04-25 18:33:16,067 - main.executetestcase - INFO - 用例执行完成
+2019-04-25 18:39:46,235 - main - INFO - 登录jira成功!
+2019-04-25 18:41:14,893 - main - INFO - 登录jira成功!
+2019-04-25 19:06:50,259 - main - INFO - 登录jira成功!
+2019-04-25 19:07:14,985 - main.executetestcase - INFO - 执行完成:0/2
+2019-04-25 19:07:17,361 - main.executetestcase - INFO - 执行完成:1/2
+2019-04-25 19:07:17,362 - main.executetestcase - INFO - 用例执行完成
+2019-04-25 19:11:04,167 - main - INFO - 登录jira成功!
+2019-04-25 19:11:21,421 - main - INFO - 登录jira成功!
+2019-04-25 19:11:42,743 - main.executetestcase - INFO - 执行完成:0/2
+2019-04-25 19:11:45,105 - main.executetestcase - INFO - 执行完成:1/2
+2019-04-25 19:11:45,106 - main.executetestcase - INFO - 用例执行完成
+2019-04-25 19:11:54,598 - main.screenshot - INFO - 不存在报错图片
+2019-04-25 19:16:09,437 - main - INFO - 登录jira成功!
+2019-04-25 19:17:25,979 - main.executetestcase - INFO - 执行完成:0/2
+2019-04-25 19:17:28,384 - main.executetestcase - INFO - 执行完成:1/2
+2019-04-25 19:17:28,384 - main.executetestcase - INFO - 用例执行完成
+2019-04-25 19:17:34,403 - main.screenshot - INFO - 不存在报错图片
+2019-04-25 19:20:45,092 - main - INFO - 登录jira成功!
+2019-04-25 19:21:01,772 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): code.bonc.com.cn
+2019-04-25 19:21:01,772 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): code.bonc.com.cn
+2019-04-25 19:21:02,073 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "GET /jira/rest/api/2/project HTTP/1.1" 200 None
+2019-04-25 19:21:02,073 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "GET /jira/rest/api/2/project HTTP/1.1" 200 None
+2019-04-25 19:21:02,227 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "GET /jira/rest/api/2/project/12106/versions HTTP/1.1" 200 None
+2019-04-25 19:21:02,227 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "GET /jira/rest/api/2/project/12106/versions HTTP/1.1" 200 None
+2019-04-25 19:21:03,781 - main.common - DEBUG - 12003
+2019-04-25 19:21:03,973 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "GET /jira/rest/zapi/latest/cycle?projectId=12106&versionId=12003&expand=executionSummaries HTTP/1.1" 200 None
+2019-04-25 19:21:03,973 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "GET /jira/rest/zapi/latest/cycle?projectId=12106&versionId=12003&expand=executionSummaries HTTP/1.1" 200 None
+2019-04-25 19:21:03,975 - main.common - DEBUG - 获取的循环列表的内容：
+2019-04-25 19:21:05,749 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "GET /jira/rest/zapi/latest/execution?action=expand&cycleId=33 HTTP/1.1" 200 None
+2019-04-25 19:21:05,749 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "GET /jira/rest/zapi/latest/execution?action=expand&cycleId=33 HTTP/1.1" 200 None
+2019-04-25 19:21:05,949 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "GET /jira/rest/api/2/issue/43137 HTTP/1.1" 200 None
+2019-04-25 19:21:05,949 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "GET /jira/rest/api/2/issue/43137 HTTP/1.1" 200 None
+2019-04-25 19:21:06,111 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "GET /jira/rest/api/2/issue/44116 HTTP/1.1" 200 None
+2019-04-25 19:21:06,111 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "GET /jira/rest/api/2/issue/44116 HTTP/1.1" 200 None
+2019-04-25 19:21:12,845 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "GET /jira/rest/api/2/issue/44166 HTTP/1.1" 200 None
+2019-04-25 19:21:12,845 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "GET /jira/rest/api/2/issue/44166 HTTP/1.1" 200 None
+2019-04-25 19:21:13,000 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "GET /jira/secure/attachment/25915/CLOUDIIPZHYD-325.py HTTP/1.1" 200 469
+2019-04-25 19:21:13,000 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "GET /jira/secure/attachment/25915/CLOUDIIPZHYD-325.py HTTP/1.1" 200 469
+2019-04-25 19:21:13,157 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "GET /jira/secure/attachment/25916/CLOUDIIPZHYD-329.py HTTP/1.1" 200 473
+2019-04-25 19:21:13,157 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "GET /jira/secure/attachment/25916/CLOUDIIPZHYD-329.py HTTP/1.1" 200 473
+2019-04-25 19:21:20,503 - main.executetestcase - DEBUG - 用例执行有输出：失败:元素不存在:通过id查找元素,未找到
+
+2019-04-25 19:21:20,503 - main.executetestcase - INFO - 执行完成:0/2
+2019-04-25 19:21:22,884 - main.executetestcase - DEBUG - 用例执行有输出：通过:验证成功
+
+2019-04-25 19:21:22,885 - main.executetestcase - INFO - 执行完成:1/2
+2019-04-25 19:21:22,885 - main.executetestcase - INFO - 用例执行完成
+2019-04-25 19:21:23,110 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "GET /jira/rest/api/2/issue/CLOUDIIPZHYD-329 HTTP/1.1" 200 None
+2019-04-25 19:21:23,110 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "GET /jira/rest/api/2/issue/CLOUDIIPZHYD-329 HTTP/1.1" 200 None
+2019-04-25 19:21:23,329 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "POST /jira/rest/zapi/latest/execution HTTP/1.1" 200 None
+2019-04-25 19:21:23,329 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "POST /jira/rest/zapi/latest/execution HTTP/1.1" 200 None
+2019-04-25 19:21:23,833 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "POST /jira/rest/api/2/issue HTTP/1.1" 201 None
+2019-04-25 19:21:23,833 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "POST /jira/rest/api/2/issue HTTP/1.1" 201 None
+2019-04-25 19:21:23,835 - main.submitbug - DEBUG - 将text转换成json格式内容：
+2019-04-25 19:21:28,842 - main.screenshot - INFO - 不存在报错图片
+2019-04-25 19:21:29,195 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "PUT /jira/rest/zapi/latest/execution/1013/execute HTTP/1.1" 200 None
+2019-04-25 19:21:29,195 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "PUT /jira/rest/zapi/latest/execution/1013/execute HTTP/1.1" 200 None
+2019-04-25 19:21:29,800 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "GET /jira/rest/api/2/issue/CLOUDIIPZHYD-325 HTTP/1.1" 200 None
+2019-04-25 19:21:29,800 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "GET /jira/rest/api/2/issue/CLOUDIIPZHYD-325 HTTP/1.1" 200 None
+2019-04-25 19:21:30,487 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "POST /jira/rest/zapi/latest/execution HTTP/1.1" 200 None
+2019-04-25 19:21:30,487 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "POST /jira/rest/zapi/latest/execution HTTP/1.1" 200 None
+2019-04-25 19:21:31,083 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "PUT /jira/rest/zapi/latest/execution/1014/execute HTTP/1.1" 200 None
+2019-04-25 19:21:31,083 - urllib3.connectionpool - DEBUG - https://code.bonc.com.cn:443 "PUT /jira/rest/zapi/latest/execution/1014/execute HTTP/1.1" 200 None

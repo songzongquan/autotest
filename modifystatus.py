@@ -83,7 +83,6 @@ def modifyStatus(s,cycleId,projectId):
             descr = d[3]
             versionId,componentId=issue[3],issue[1]
             bugkey=submitbug(s,summary,descr,versionId,projectId,componentId)
-            time.sleep(5)
             screenshot(s,bugkey,issueKey)
 
         values = json.dumps({"status":t})

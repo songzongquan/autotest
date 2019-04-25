@@ -10,8 +10,6 @@ from common import *
 from config import *
 from log import *
 
-import locale
-locale.setlocale(local.LC_ALl,'zh_CN.UTF8')
 
 logInit()
 logger = logging.getLogger("main")
