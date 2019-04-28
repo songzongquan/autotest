@@ -34,41 +34,46 @@ def executetestcase():
     logger.debug("测试结果存放路径:"+result_path)
     logger.debug("截图存放路径:"+screenshot_path)
     current_system = platform.system()  #返回操作系统类型
-    if current_system=="Windows":
+    logger.debug("当前操作系统："+current_system)
+    if current_system == "Windows":
         yuyan = "python "
-    if current_system=="Linux":
+        encode = "gbk"
+    elif current_system == "Linux":
         yuyan = "python3 "
+        encode = "utf-8"
     else:
         yuyan = "python "
+        encode = "gbk"
     #如果csv文件存在,删除
     if os.path.exists(csv_name):
         os.remove(csv_name)
-    with open(csv_name, "w") as csvfile:
+    with open(csv_name, "w",encoding=encode,newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(["用例id", "用例执行状态", "标题","详细描述"])  #填写表头
         for i in range(length):
             filestr = scripts[i].split(".") 
             id = filestr[0]  #case的id
             command = yuyan+script_path+scripts[i]
+            logger.debug("用例执行命令行为:"+command)
             ret = None
             #back_result = os.popen(yuyan+script_path+scripts[i])   #返回执行文件的输出内容,为file对象
             if current_system == "Windows":
-                ret = subprocess.run(command,shell=False,close_sfs=False,stdout=subprocess.PIPE,stderr=subprocess.PIPE,encoding="utf-8",timeout=30)
+                ret = subprocess.run(command,shell=True,stdout=subprocess.PIPE,timeout=30)
             else:
 
-                ret = subprocess.run(command,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,encoding="utf-8",timeout=30)
+                ret = subprocess.run(command,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,encoding=encode,timeout=30)
             
             #back_read = back_result.read()
             if ret.returncode == 0:
 
-                back_read = ret.stdout
+                back_read = bytes.decode(ret.stdout,encoding=encode)
                 logger.debug("用例执行有输出："+back_read)                
                 csv_write = back_read.split(":")
                 write_list = [id]
                 write_list.extend(csv_write)
                 logger.info("执行完成:"+str(i+1)+"/"+str(length))
-                #print("用例执行结果:"+write_list)
+                logger.debug("用例执行结果转换为文件行:"+str(write_list))
                 writer.writerows([write_list])
             else:
-                print("failure")
+                logger.error("调用测试用例脚本失败")
     logger.info("用例执行完成")
