@@ -6,6 +6,7 @@ import csv
 import shutil #需要使用pip install pytest-shutil安装此模块
 import logging
 import platform
+import subprocess
 
 def executetestcase():
     logger = logging.getLogger("main.executetestcase")
