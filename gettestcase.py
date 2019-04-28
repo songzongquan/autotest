@@ -32,7 +32,7 @@ def gettestcase(s,cycleId):
            if ".py" in filename:
                e ={"id":id,"filename":filename}
                result.append(e)
-    logger.debug("这是附件的字典信息"+result)
+    logger.debug("这是附件的字典信息"+str(result))
     
     return result
 
