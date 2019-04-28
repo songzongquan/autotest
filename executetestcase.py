@@ -15,7 +15,7 @@ def executetestcase():
     scripts= os.listdir(script_path) #获取所有执行脚本
     length = len(scripts)  #执行脚本的个数
     #print("此次循环要执行的用力个数为:",length)
-    logger.debug("此次循环要执行的用例个数为:",length)
+    logger.debug("此次循环要执行的用例个数为:"+str(length))
     result_path = os.path.join(path+"/result/")  #存放结果的路径
     screenshot_path = os.path.join(path+"/screenshot/") #截图存放路径
     #截图路径若存在,删除后新建,若不存在,直接新建
@@ -31,8 +31,8 @@ def executetestcase():
         os.makedirs(result_path)
     #执行结果写入csv文件
     csv_name = os.path.join(path+"/result/zhixing.csv")
-    logger.debug("测试结果存放路径:",result_path)
-    logger.debug("截图存放路径:",screenshot_path)
+    logger.debug("测试结果存放路径:"+result_path)
+    logger.debug("截图存放路径:"+screenshot_path)
     current_system = platform.system()  #返回操作系统类型
     if current_system=="Windows":
         yuyan = "python "
@@ -60,8 +60,8 @@ def executetestcase():
                 csv_write = back_read.split(":")
                 write_list = [id]
                 write_list.extend(csv_write)
-                logger.info("执行完成:"+str(i)+"/"+str(length))
-                #print("用例执行结果:",write_list)
+                logger.info("执行完成:"+str(i+1)+"/"+str(length))
+                #print("用例执行结果:"+write_list)
                 writer.writerows([write_list])
             else:
                 print("failure")
