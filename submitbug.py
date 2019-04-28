@@ -14,20 +14,20 @@ def submitbug(s,summary, description,componentid,projectid,versionid):
     path=getjiraUrl()
     url = path+ 'rest/api/2/issue'
 
-    sub_logger.debug("jira:CREATE ISSUE接口的url：",url)
+    sub_logger.debug("jira:CREATE ISSUE接口的url："+url)
 
     payload=json.dumps({"fields": {"summary": summary,"issuetype": {"id": "1"},"components": [{"id": componentid}],"project": {"id": projectid},"description": description,"customfield_11303":[{"id":versionid}]}})
 
     r= post(s,url,data=payload)
     # print(r)
-    sub_logger.debug("jira:CREATE ISSUE接口的返回的text格式内容：",r)
+    sub_logger.debug("jira:CREATE ISSUE接口的返回的text格式内容："+r)
     ''' 返回提交的bug对应的key值'''
     dict=json.loads(r)
     # print(dict)
-    sub_logger.debug("将text转换成json格式内容：", dict)
+    sub_logger.debug("将text转换成json格式内容："+str(dict))
     key=dict.get("key")
     # print(key)
-    sub_logger.debug("获取bug的key值：",key)
+    sub_logger.debug("获取bug的key值："+key)
     return(key)
 
 
