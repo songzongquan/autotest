@@ -27,12 +27,12 @@ def gettestcase(s,cycleId):
        for attachment in attachments:                 #list
            id = attachment['id']
            filename = attachment['filename']
-           logger.debug("这是附件的id：",id)
-           logger.debug("这是附件的filename：",filename)
+           logger.debug("这是附件的id："+id)
+           logger.debug("这是附件的filename："+filename)
            if ".py" in filename:
                e ={"id":id,"filename":filename}
                result.append(e)
-    logger.debug("这是附件的字典信息",result)
+    logger.debug("这是附件的字典信息"+result)
     
     return result
 
