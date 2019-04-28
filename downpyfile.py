@@ -11,14 +11,14 @@ def downpyfile(s,id,filename):
     jiraurl= getjiraUrl()
     url = jiraurl+"secure/attachment/" + id + "/" + filename  # 接口地址
     # print(url)
-    sub_logger.debug("【下载py文件】调用的接口地址：",url)
+    sub_logger.debug("【下载py文件】调用的接口地址："+url)
     basedir = os.getcwd()  #获取当前路径
     path = os.path.join(basedir+'/testpy/') #py文件存取的目录
     # print(path)
-    sub_logger.debug("【下载py文件】py文件存取的目录：",path)
+    sub_logger.debug("【下载py文件】py文件存取的目录："+path)
     target = path + filename  #py文件存取的最终显示路径
     # print(target)
-    sub_logger.debug("【下载py文件】下载的py文件路径：",target)
+    sub_logger.debug("【下载py文件】下载的py文件路径："+target)
     d = downloadFile(s, url, target)  #调用login中的下载附件的函数
 
 if not os.path.exists(os.path.join(os.getcwd()+'/testpy')):   #重新下载py文件时，判断下载的py文件存放的目录是否存在，存在的话就清空文件，否则就新建
