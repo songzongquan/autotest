@@ -8,16 +8,16 @@ logger = logging.getLogger("main.config")
 def getConfig():
 	
     basedir = os.getcwd()   # 获取当前文件所在目录
-    logger.debug("获取当前文件所在的目录:",basedir)
+    logger.debug("获取当前文件所在的目录:"+basedir)
     configpath = os.path.join(basedir + '/config/config.properties')    # 获取config.properties文件所在目录
-    logger.debug("获取config.properties文件所在目录:",configpath)
+    logger.debug("获取config.properties文件所在目录:"+configpath)
     dictProperties = Properties(configpath).getProperties()     # 读取配置文件,字典形式返回文件内容
-    logger.debug("字典形式返回配置文件内容:",str(dictProperties))
+    logger.debug("字典形式返回配置文件内容:"+str(dictProperties))
     return dictProperties
 
 def getjiraUrl():
     properties = getConfig()
-    logger.debug("在getjiraUrl方法中，字典形式返回配置文件内容:",str(properties))
+    logger.debug("在getjiraUrl方法中，字典形式返回配置文件内容:"+str(properties))
     jiraurl = properties["url"]
     return jiraurl
 
