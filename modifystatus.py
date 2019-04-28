@@ -16,8 +16,8 @@ logger = logging.getLogger("main.modifyStatus")
 def readCSV():
     basedir=os.getcwd()
     p=os.path.join(basedir+'/result/zhixing.csv')
-    d=csv.reader(open(p,'r'))
-    l = list(d)    
+    d=csv.reader(open(p,'r',encoding='UTF-8'))
+    l = list(d)
     return l[1:]
 
 '''通过issuKey(肉眼可见的用例编号如"CLOUDIIPZHYD-23"),获取issueId(从F12中获得的用例ID),versionId(版本ID,目前相当于写死的,日后会做更改),
@@ -29,7 +29,7 @@ def getIssueInfo(s,issueKey):
     # print(path)
     url=path+'rest/api/2/issue/'+issueKey
     #print(url)
-    logger.debug('输出获取用例ID,版本ID,项目ID,组件ID的接口地址：',url)
+    logger.debug('输出获取用例ID,版本ID,项目ID,组件ID的接口地址：'+url)
     r =getJson(s,url)
     issueId = r["id"]
     versionId=r["fields"]["customfield_11303"][0]["id"]
@@ -88,11 +88,12 @@ def modifyStatus(s,cycleId,projectId):
         values = json.dumps({"status":t})
         p= put(s,url, data=values) # 修改用例状态方法用put
         #print(p)
-        logger.debug('输出修改用例后的信息：',p)
+        logger.debug('输出修改用例后的信息：'+p)
 
 if __name__ == '__main__':
     s = login('wangyujia', 'wyj211421.')
     modifyStatus(s,'33','12106')
+
 
 
 
