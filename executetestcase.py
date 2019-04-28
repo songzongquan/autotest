@@ -11,14 +11,14 @@ def executetestcase():
     path = os.getcwd()  #获取当前路径
     script_path = os.path.join(path+"/testpy/")   
     result_path = os.path.join(path+"/result/")  #存放结果的路径
-    screenshot_path = os.path.join(path+"/testpy/screenshot/") #截图存放路径
+    screenshot_path = os.path.join(path+"/screenshot/") #截图存放路径
+    scripts= os.listdir(script_path) #获取所有执行脚本
+    length = len(scripts)  #执行脚本的个数
+    #print("此次循环要执行的用力个数为:",length)
+    logger.debug("此次循环要执行的用例个数为:"+str(length))
     #截图路径若存在,删除后新建,若不存在,直接新建
     if os.path.exists(screenshot_path):
         shutil.rmtree(screenshot_path)
-        scripts= os.listdir(script_path) #获取所有执行脚本
-        length = len(scripts)  #执行脚本的个数
-        #print("此次循环要执行的用力个数为:",length)
-        logger.debug("此次循环要执行的用例个数为:"+str(length))
         os.makedirs(screenshot_path)
     else:
         os.makedirs(screenshot_path)
