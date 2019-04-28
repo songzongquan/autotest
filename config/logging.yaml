@@ -14,7 +14,7 @@ handlers:
             level: DEBUG
             formatter: simple
             filename: log/autotest.log
-            maxBytes: 10485760
+            maxBytes: 104857600
             backupCount: 20
             encoding: utf8
     error_file_handler:
@@ -22,7 +22,7 @@ handlers:
             level: DEBUG
             formatter: simple
             filename: log/autotest.log
-            maxBytes: 10485760
+            maxBytes: 104857600
             backupCount: 20
             encoding: utf8
 loggers:
