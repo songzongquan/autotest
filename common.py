@@ -15,7 +15,7 @@ def getproject(s,projectkey):
     sub_logger.debug("获取project信息的接口的地址："+url)
     list = getJson(s,url,params=None)
     # print(list)
-    sub_logger.debug("获取的porject列表信息："+list)
+    sub_logger.debug("获取的porject列表信息："+str(list))
     tag = "false"
     for i in list:
         if i["key"] == projectkey:
@@ -36,7 +36,7 @@ def getversions(s,projectId):
     print("如下是该项目下的版本信息：")
     r = getJson(s, url, params=None)
     # print(r)
-    sub_logger.debug("获取的版本信息的内容："+r)
+    sub_logger.debug("获取的版本信息的内容："+str(r))
     list_len=len(r)
     for i in range(list_len):
         # print(i+1,'.',"versionid:",r[i]["id"],"versionname:",r[i]["name"])
@@ -56,7 +56,7 @@ def getcycleId (s, projectId, versionId):
     sub_logger.debug("获取循环列表的接口地址："+url)
     dict = getJson(s, url, params=None)
     # print(dict)
-    sub_logger.debug("获取的循环列表的内容："+dict)
+    sub_logger.debug("获取的循环列表的内容："+str(dict))
     print("如下是该项目对应的测试循环信息：")
     # 已读取为dict
     key_list = list(dict.keys())
