@@ -50,8 +50,14 @@ def executetestcase():
             filestr = scripts[i].split(".") 
             id = filestr[0]  #case的id
             command = yuyan+script_path+scripts[i]
+            ret = None
             #back_result = os.popen(yuyan+script_path+scripts[i])   #返回执行文件的输出内容,为file对象
-            ret = subprocess.run(command,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,encoding="utf-8",timeout=30)
+            if current_system == "Windows":
+                ret = subprocess.run(command,shell=False,close_sfs=False,stdout=subprocess.PIPE,stderr=subprocess.PIPE,encoding="utf-8",timeout=30)
+            else:
+
+                ret = subprocess.run(command,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,encoding="utf-8",timeout=30)
+            
             #back_read = back_result.read()
             if ret.returncode == 0:
 
