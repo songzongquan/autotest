@@ -61,7 +61,7 @@ def executetestcase():
                 ret = subprocess.run(command,shell=True,stdout=subprocess.PIPE,timeout=30)
             else:
 
-                ret = subprocess.run(command,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,encoding=encode,timeout=30)
+                ret = subprocess.run(command,shell=True,stdout=subprocess.PIPE,timeout=30)
             
             #back_read = back_result.read()
             if ret.returncode == 0:
